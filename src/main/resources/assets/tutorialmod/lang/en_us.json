@@ -11,6 +11,8 @@
   "block.tutorialmod.jumpy_block": "Jumpy Block",
   "block.tutorialmod.zircon_lamp": "Zircon Lamp",
   "block.tutorialmod.blueberry_crop": "Blueberry Crop",
+  "block.tutorialmod.endstone_zircon_ore": "Endstone Zircon Ore",
+  "block.tutorialmod.netherrack_zircon_ore": "Netherrack Zircon Ore",
 
   "itemGroup.tutorialtab": "Zircon Tutorial Tab",
   "entity.minecraft.villager.tutorialmod.jumpy_master": "Jumpy Master"
