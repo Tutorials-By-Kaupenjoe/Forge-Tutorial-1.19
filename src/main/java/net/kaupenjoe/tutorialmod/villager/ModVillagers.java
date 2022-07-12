@@ -18,7 +18,7 @@ public class ModVillagers {
     public static final DeferredRegister<PoiType> POI_TYPES =
             DeferredRegister.create(ForgeRegistries.POI_TYPES, TutorialMod.MOD_ID);
     public static final DeferredRegister<VillagerProfession> VILLAGER_PROFESSIONS =
-            DeferredRegister.create(ForgeRegistries.PROFESSIONS, TutorialMod.MOD_ID);
+            DeferredRegister.create(ForgeRegistries.VILLAGER_PROFESSIONS, TutorialMod.MOD_ID);
 
     public static final RegistryObject<PoiType> JUMPY_BLOCK_POI = POI_TYPES.register("jumpy_block_poi",
             () -> new PoiType(ImmutableSet.copyOf(ModBlocks.JUMPY_BLOCK.get().getStateDefinition().getPossibleStates()),
