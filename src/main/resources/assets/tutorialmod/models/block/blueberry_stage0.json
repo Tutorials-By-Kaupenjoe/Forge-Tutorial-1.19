@@ -2,6 +2,5 @@
   "parent": "minecraft:block/crop",
   "textures": {
     "crop": "tutorialmod:block/blueberry_stage0"
-  },
-  "render_type": "cutout"
+  }
 }
