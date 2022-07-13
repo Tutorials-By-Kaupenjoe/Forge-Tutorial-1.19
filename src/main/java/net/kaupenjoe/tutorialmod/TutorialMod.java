@@ -3,6 +3,7 @@ package net.kaupenjoe.tutorialmod;
 import com.mojang.logging.LogUtils;
 import net.kaupenjoe.tutorialmod.block.ModBlocks;
 import net.kaupenjoe.tutorialmod.item.ModItems;
+import net.kaupenjoe.tutorialmod.networking.ModMessages;
 import net.kaupenjoe.tutorialmod.painting.ModPaintings;
 import net.kaupenjoe.tutorialmod.villager.ModVillagers;
 import net.kaupenjoe.tutorialmod.world.feature.ModConfiguredFeatures;
@@ -46,6 +47,8 @@ public class TutorialMod {
         event.enqueueWork(() -> {
             ModVillagers.registerPOIs();
         });
+
+        ModMessages.register();
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent

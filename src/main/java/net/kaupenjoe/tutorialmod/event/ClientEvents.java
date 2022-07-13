@@ -1,6 +1,9 @@
 package net.kaupenjoe.tutorialmod.event;
 
 import net.kaupenjoe.tutorialmod.TutorialMod;
+import net.kaupenjoe.tutorialmod.networking.ModMessages;
+import net.kaupenjoe.tutorialmod.networking.packet.DrinkWaterC2SPacket;
+import net.kaupenjoe.tutorialmod.networking.packet.ExampleC2SPacket;
 import net.kaupenjoe.tutorialmod.util.KeyBinding;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
@@ -16,7 +19,7 @@ public class ClientEvents {
         @SubscribeEvent
         public static void onKeyInput(InputEvent.Key event) {
             if(KeyBinding.DRINKING_KEY.consumeClick()) {
-                Minecraft.getInstance().player.sendSystemMessage(Component.literal("Pressed a Key!"));
+                ModMessages.sendToServer(new DrinkWaterC2SPacket());
             }
         }
     }
