@@ -2,6 +2,7 @@ package net.kaupenjoe.tutorialmod.block;
 
 import net.kaupenjoe.tutorialmod.TutorialMod;
 import net.kaupenjoe.tutorialmod.block.custom.BlueberryCropBlock;
+import net.kaupenjoe.tutorialmod.block.custom.GemInfusingStationBlock;
 import net.kaupenjoe.tutorialmod.block.custom.JumpyBlock;
 import net.kaupenjoe.tutorialmod.block.custom.ZirconLampBlock;
 import net.kaupenjoe.tutorialmod.fluid.ModFluids;
@@ -63,6 +64,10 @@ public class ModBlocks {
 
     public static final RegistryObject<LiquidBlock> SOAP_WATER_BLOCK = BLOCKS.register("soap_water_block",
             () -> new LiquidBlock(ModFluids.SOURCE_SOAP_WATER, BlockBehaviour.Properties.copy(Blocks.WATER)));
+
+    public static final RegistryObject<Block> GEM_INFUSING_STATION = registerBlock("gem_infusing_station",
+            () -> new GemInfusingStationBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(6f).requiresCorrectToolForDrops().noOcclusion()), ModCreativeModeTab.TUTORIAL_TAB);
 
 
 
