@@ -1,0 +1,11 @@
+{
+  "type": "tutorialmod:gem_infusing",
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "output": {
+    "item": "minecraft:diamond"
+  }
+}
