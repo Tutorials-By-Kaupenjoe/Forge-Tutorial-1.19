@@ -1,2 +1,5 @@
 Paintings by PlatinumG17 (https://creativecommons.org/licenses/by-sa/4.0/):
 https://www.curseforge.com/members/platinumg17/projects
+
+WrappedHandler Class by noeppi_noeppi
+under https://github.com/ModdingX/LibX/blob/1.19/LICENSE
