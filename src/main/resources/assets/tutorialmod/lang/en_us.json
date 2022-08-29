@@ -24,5 +24,8 @@
   "key.tutorialmod.drink_water": "Drink Water",
 
   "message.tutorialmod.drink_water": "Drinking Water",
-  "message.tutorialmod.no_water": "No water nearby!"
+  "message.tutorialmod.no_water": "No water nearby!",
+
+  "tutorialmod.tooltip.liquid.amount.with.capacity": "%s / %s mB",
+  "tutorialmod.tooltip.liquid.amount": "%s mB"
 }

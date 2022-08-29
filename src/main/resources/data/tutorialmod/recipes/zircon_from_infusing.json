@@ -5,6 +5,10 @@
       "item": "tutorialmod:raw_zircon"
     }
   ],
+  "fluid": {
+    "FluidName": "minecraft:water",
+    "Amount": 500
+  },
   "output": {
     "item": "tutorialmod:zircon"
   }
