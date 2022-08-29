@@ -1,6 +1,8 @@
 package net.kaupenjoe.tutorialmod.event;
 
 import net.kaupenjoe.tutorialmod.TutorialMod;
+import net.kaupenjoe.tutorialmod.block.entity.ModBlockEntities;
+import net.kaupenjoe.tutorialmod.block.entity.renderer.GemInfusingStationBlockEntityRenderer;
 import net.kaupenjoe.tutorialmod.client.ThirstHudOverlay;
 import net.kaupenjoe.tutorialmod.networking.ModMessages;
 import net.kaupenjoe.tutorialmod.networking.packet.DrinkWaterC2SPacket;
@@ -9,6 +11,7 @@ import net.kaupenjoe.tutorialmod.util.KeyBinding;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
@@ -36,6 +39,12 @@ public class ClientEvents {
         @SubscribeEvent
         public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
             event.registerAboveAll("thirst", ThirstHudOverlay.HUD_THIRST);
+        }
+
+        @SubscribeEvent
+        public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
+            event.registerBlockEntityRenderer(ModBlockEntities.GEM_INFUSING_STATION.get(),
+                    GemInfusingStationBlockEntityRenderer::new);
         }
     }
 }
