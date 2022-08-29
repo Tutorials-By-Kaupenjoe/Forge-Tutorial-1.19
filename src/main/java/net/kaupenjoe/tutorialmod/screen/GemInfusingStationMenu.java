@@ -9,7 +9,7 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class GemInfusingStationMenu extends AbstractContainerMenu {
@@ -31,7 +31,7 @@ public class GemInfusingStationMenu extends AbstractContainerMenu {
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
+        this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
             this.addSlot(new SlotItemHandler(handler, 0, 12, 15));
             this.addSlot(new SlotItemHandler(handler, 1, 86, 15));
             this.addSlot(new SlotItemHandler(handler, 2, 86, 60));
@@ -42,6 +42,11 @@ public class GemInfusingStationMenu extends AbstractContainerMenu {
 
     public boolean isCrafting() {
         return data.get(0) > 0;
+    }
+
+
+    public GemInfusingStationBlockEntity getBlockEntity() {
+        return this.blockEntity;
     }
 
     public int getScaledProgress() {
