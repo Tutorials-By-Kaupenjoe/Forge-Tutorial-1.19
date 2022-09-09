@@ -1,6 +1,10 @@
 package net.kaupenjoe.tutorialmod.entity.custom;
 
+import net.kaupenjoe.tutorialmod.entity.ai.ChomperAttackGoal;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
@@ -30,6 +34,9 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 public class ChomperEntity extends Monster implements IAnimatable {
     private AnimationFactory factory = new AnimationFactory(this);
 
+    private static final EntityDataAccessor<Boolean> ATTACKING =
+            SynchedEntityData.defineId(ChomperEntity.class, EntityDataSerializers.BOOLEAN);
+
     public ChomperEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
@@ -45,7 +52,7 @@ public class ChomperEntity extends Monster implements IAnimatable {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, false));
+        this.goalSelector.addGoal(2, new ChomperAttackGoal(this, 1.2D, false));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
 
@@ -65,10 +72,21 @@ public class ChomperEntity extends Monster implements IAnimatable {
         return PlayState.CONTINUE;
     }
 
+    private PlayState attackPredicate(AnimationEvent event) {
+        if(this.isAttacking()) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.chomper.attack", true));
+            return PlayState.CONTINUE;
+        }
+
+        return PlayState.STOP;
+    }
+
     @Override
     public void registerControllers(AnimationData data) {
         data.addAnimationController(new AnimationController(this, "controller",
                 0, this::predicate));
+        data.addAnimationController(new AnimationController(this, "attackController",
+                0, this::attackPredicate));
     }
 
     @Override
@@ -96,4 +114,17 @@ public class ChomperEntity extends Monster implements IAnimatable {
         return 0.2F;
     }
 
+    public void setAttacking(boolean attacking) {
+        this.entityData.set(ATTACKING, attacking);
+    }
+
+    public boolean isAttacking() {
+        return this.entityData.get(ATTACKING);
+    }
+
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(ATTACKING, false);
+    }
 }
