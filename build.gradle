@@ -133,6 +133,7 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
 }
 
 dependencies {
@@ -148,6 +149,8 @@ dependencies {
     runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
 
     runtimeOnly fg.deobf("curse.maven:mekanism-268560:3922056")
+
+    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.19')
 
     // Real mod deobf dependency examples - these get remapped to your current mappings
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
