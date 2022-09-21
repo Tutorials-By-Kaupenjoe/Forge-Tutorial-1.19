@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "tutorialmod:block/jasmine"
+  },
+  "render_type": "cutout"
+}
