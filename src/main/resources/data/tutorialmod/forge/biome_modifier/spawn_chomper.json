@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:desert"
+  ],
+  "spawners": {
+    "type": "tutorialmod:chomper",
+    "weight": 150,
+    "minCount": 1,
+    "maxCount": 3
+  }
+}
