@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "tutorialmod:block/red_maple_leaves"
+  },
+  "render_type": "cutout"
+}
