@@ -8,6 +8,7 @@ import net.kaupenjoe.tutorialmod.entity.client.ChomperRenderer;
 import net.kaupenjoe.tutorialmod.fluid.ModFluidTypes;
 import net.kaupenjoe.tutorialmod.fluid.ModFluids;
 import net.kaupenjoe.tutorialmod.item.ModItems;
+import net.kaupenjoe.tutorialmod.loot.ModLootModifiers;
 import net.kaupenjoe.tutorialmod.networking.ModMessages;
 import net.kaupenjoe.tutorialmod.painting.ModPaintings;
 import net.kaupenjoe.tutorialmod.recipe.ModRecipes;
@@ -62,6 +63,8 @@ public class TutorialMod {
 
         ModRecipes.register(modEventBus);
         ModEntityTypes.register(modEventBus);
+
+        ModLootModifiers.register(modEventBus);
 
         GeckoLib.initialize();
 
