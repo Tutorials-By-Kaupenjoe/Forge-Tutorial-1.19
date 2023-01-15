@@ -71,9 +71,9 @@ public class GemInfusingStationScreen extends AbstractContainerScreen<GemInfusin
     protected void renderBg(PoseStack pPoseStack, float pPartialTick, int pMouseX, int pMouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        RenderSystem.setShaderTexture(0, TEXTURE);
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
+        RenderSystem.setShaderTexture(0, TEXTURE);
 
         this.blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
 

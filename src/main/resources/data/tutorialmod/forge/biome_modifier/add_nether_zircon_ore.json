@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
   "biomes": "#minecraft:is_nether",
-  "features": "tutorialmod:nether_zircon_ore_placed",
+  "features": "tutorialmod:nether_zircon_placed",
   "step": "underground_ores"
 }

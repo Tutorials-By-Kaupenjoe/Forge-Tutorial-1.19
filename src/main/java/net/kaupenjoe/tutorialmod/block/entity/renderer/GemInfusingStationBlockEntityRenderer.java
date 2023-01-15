@@ -1,7 +1,7 @@
 package net.kaupenjoe.tutorialmod.block.entity.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import net.kaupenjoe.tutorialmod.block.custom.GemInfusingStationBlock;
 import net.kaupenjoe.tutorialmod.block.entity.GemInfusingStationBlockEntity;
 import net.minecraft.client.Minecraft;
@@ -16,6 +16,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
+import org.joml.Vector3f;
 
 public class GemInfusingStationBlockEntityRenderer implements BlockEntityRenderer<GemInfusingStationBlockEntity> {
     public GemInfusingStationBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
@@ -30,13 +31,13 @@ public class GemInfusingStationBlockEntityRenderer implements BlockEntityRendere
         pPoseStack.pushPose();
         pPoseStack.translate(0.5f, 0.65f, 0.5f);
         pPoseStack.scale(0.25f, 0.25f, 0.25f);
-        pPoseStack.mulPose(Vector3f.XP.rotationDegrees(90));
+        pPoseStack.mulPose(Axis.XP.rotationDegrees(90));
 
         switch (pBlockEntity.getBlockState().getValue(GemInfusingStationBlock.FACING)) {
-            case NORTH -> pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(0));
-            case EAST -> pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(90));
-            case SOUTH -> pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(180));
-            case WEST -> pPoseStack.mulPose(Vector3f.ZP.rotationDegrees(270));
+            case NORTH -> pPoseStack.mulPose(Axis.ZP.rotationDegrees(0));
+            case EAST -> pPoseStack.mulPose(Axis.ZP.rotationDegrees(90));
+            case SOUTH -> pPoseStack.mulPose(Axis.ZP.rotationDegrees(180));
+            case WEST -> pPoseStack.mulPose(Axis.ZP.rotationDegrees(270));
         }
 
         itemRenderer.renderStatic(itemStack, ItemTransforms.TransformType.GUI, getLightLevel(pBlockEntity.getLevel(),

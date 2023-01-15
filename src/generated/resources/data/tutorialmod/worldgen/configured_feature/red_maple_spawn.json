@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "tutorialmod:red_maple_checked",
+    "features": [
+      {
+        "chance": 0.5,
+        "feature": "tutorialmod:red_maple_checked"
+      }
+    ]
+  }
+}
